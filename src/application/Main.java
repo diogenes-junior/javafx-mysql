@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
+	
+	private static Scene mainScene;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -17,8 +20,8 @@ public class Main extends Application {
 			parent.setFitToWidth(true);
 			parent.setFitToHeight(true);
 			
-			Scene scene = new Scene(parent);
-			primaryStage.setScene(scene);
+			mainScene = new Scene(parent);
+			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("Sample JavaFX Application");
 			primaryStage.show();
 		} catch(Exception e) {
@@ -26,7 +29,14 @@ public class Main extends Application {
 		}
 	}
 	
+	public static Scene getScene() {
+		return mainScene;
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
+		
+		System.out.println(System.getProperty("java.version"));
+		System.out.println(System.getProperty("javafx.version"));
 	}
 }
